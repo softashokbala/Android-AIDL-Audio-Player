@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Permissions for reading audio files -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+
+    <application
+        android:allowBackup="true"
+        android:label="AidlPlayerService"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        <!-- 
+            INTERVIEW NOTE:
+            android:process=":remote" runs this service in a separate process named 'com.example.aidlplayer.service:remote'.
+            android:exported="true" allows external apps (like our client) to bind to it.
+        -->
+        <service
+            android:name=".AudioPlayerService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="com.example.aidlplayer.action.BIND_PLAYER" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".ConnectivityService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":connectivity">
+            <intent-filter>
+                <action android:name="com.example.aidlplayer.action.BIND_WIFI" />
+                <action android:name="com.example.aidlplayer.action.BIND_BLUETOOTH" />
+                <action android:name="com.example.aidlplayer.action.BIND_NFC" />
+                <action android:name="com.example.aidlplayer.action.BIND_CAR_CONTROL" />
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>

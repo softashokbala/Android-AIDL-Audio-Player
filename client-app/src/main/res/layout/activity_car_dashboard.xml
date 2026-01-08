@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#202020"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Car Dashboard"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- WiFi Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WiFi Controls"
+            android:textColor="#BB86FC"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnConnectWifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Connect WiFi Manager" />
+
+        <TextView
+            android:id="@+id/tvWifiStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Status: Not Connected"
+            android:textColor="#FFFFFF" 
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Bluetooth Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bluetooth Controls"
+            android:textColor="#BB86FC"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnConnectBt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Connect BT Manager" />
+
+        <TextView
+            android:id="@+id/tvBtStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Status: Not Connected"
+            android:textColor="#FFFFFF" 
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Car Control Section -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Car Controls (HVAC/Windows)"
+            android:textColor="#BB86FC"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnConnectCar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Connect Car Manager" />
+            
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Driver Temp:"
+                android:textColor="#FFFFFF"/>
+            <SeekBar
+                android:id="@+id/seekBarTemp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:max="30"
+                android:min="16"/>
+            <TextView
+                android:id="@+id/tvTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="22°C"
+                android:textColor="#FFFFFF"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

@@ -24,3 +24,30 @@ jobs:
 
     - name: Build with Gradle
       run: ./gradlew assembleDebug
+
+    - name: Upload Debug APKs
+      uses: actions/upload-artifact@v4
+      with:
+        name: debug-apks
+        path: |
+          service-app/build/outputs/apk/debug/service-app-debug.apk
+          client-app/build/outputs/apk/debug/client-app-debug.apk
+
+    # OPTIONAL: Send APKs via Email
+    # To enable: 
+    # 1. Settings -> Secrets and variables -> Actions -> New repository secret
+    # 2. Add: MAIL_USERNAME (your_email@gmail.com), MAIL_PASSWORD (app_password)
+    # 3. Uncomment below:
+    # - name: Send mail
+    #   uses: dawidd6/action-send-mail@v3
+    #   with:
+    #     server_address: smtp.gmail.com
+    #     server_port: 465
+    #     username: ${{secrets.MAIL_USERNAME}}
+    #     password: ${{secrets.MAIL_PASSWORD}}
+    #     subject: Android Debug Build Ready 🚀
+    #     body: Build job of ${{github.repository}} completed successfully!
+    #     to: your_target_email@example.com
+    #     from: Android CI
+    #     secure: true
+    #     attachments: service-app/build/outputs/apk/debug/service-app-debug.apk,client-app/build/outputs/apk/debug/client-app-debug.apk
